@@ -41,7 +41,6 @@ export default function TabTwoScreen() {
       Keyboard.dismiss();
     }}>
       <View style={styles.content}>
-        <Header />
         <AddItem textInput={text} setNewText={setText} handleTap={handleTap} />
         <View style={styles.content}>
           <FlatList data={todos} renderItem={({ item }) => (
