@@ -1,6 +1,6 @@
 import { signIn } from "@/store/authSlice"
 import { AppDispatch } from "@/store/store"
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native"
+import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native"
 import { useDispatch } from "react-redux"
 
 const Login = () => {
@@ -11,11 +11,12 @@ const Login = () => {
     }
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={handleTap}>
+            <Image source={require('@/assets/images/Logo svg 1.png')}/>
+            {/* <TouchableOpacity onPress={handleTap}>
                 <View style = {styles.text}>
                     <Text>Login Page</Text>
                 </View>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
         </View>
     )
 }

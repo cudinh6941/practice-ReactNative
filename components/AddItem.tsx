@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { TextInput, View, StyleSheet, TouchableOpacity, Text, Button } from "react-native"
 
 type TodoItemProps = {
@@ -8,6 +8,12 @@ type TodoItemProps = {
 }
 
 const AddItem: React.FC<TodoItemProps> = ({textInput, setNewText, handleTap}) => {
+  useEffect(() => {
+    console.log("Component is mounted")
+    return () => {
+      console.log("component is unmounted")
+    }
+  })
     return (
         <View style={styles.addInput}>
         <TextInput style={styles.input} value={textInput} onChangeText={setNewText}/>
