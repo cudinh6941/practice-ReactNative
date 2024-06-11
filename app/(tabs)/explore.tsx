@@ -7,7 +7,7 @@ import TodoItem from '@/components/TodoItem';
 import AddItem from '@/components/AddItem';
 import { RootState, AppDispatch } from '@/store/store';
 
-export default function TabTwoScreen() {
+export default function Explore() {
   const [text, setText] = useState('');
   const todos = useSelector((state: RootState) => state.todos);
   const dispatch: AppDispatch = useDispatch();
