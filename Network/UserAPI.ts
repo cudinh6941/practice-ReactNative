@@ -61,7 +61,7 @@ const UserAPI = {
   requestLogin: async () => {
     return await RequestManager.request<DataResponseModel<LoginData>>({
       method: 'GET',
-      url: 'http://113.161.77.18:7010/nikoh_user/api/login',
+      url: '/todos/1',
     });
   },
 

@@ -1,9 +1,8 @@
-// RequestManager.ts
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import Config from 'react-native-config';
 
 const instance = axios.create({
-  baseURL: Config.API_URL,
+  baseURL: 'https://jsonplaceholder.typicode.com',
   timeout: 60000,
 });
 
@@ -18,7 +17,6 @@ const setAuthorizationHeader = (token: string | null) => {
 const request = async <T>(config: AxiosRequestConfig): Promise<T> => {
     try {
       // Thiết lập header Content-Type là application/json
-      console.log(config.url)
       config.headers = {
         ...config.headers,
         Accept: 'application/json',
