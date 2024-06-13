@@ -59,14 +59,14 @@ interface NearestSewerPipe {
 
 const UserAPI = {
   requestLogin: async () => {
-    return await RequestManager.request<DataResponseModel<LoginData>>({
+    return await RequestManager.request({
       method: 'GET',
-      url: '/todos/1',
+      url: '/photos',
     });
   },
 
   requestLogout: async () => {
-    return await RequestManager.request<BaseResponseModel>({
+    return await RequestManager.request({
       method: 'GET',
       url: '/api/account/logout',
     });

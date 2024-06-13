@@ -7,15 +7,15 @@ import { useDispatch } from "react-redux"
 
 export default function Login() {
     const dispatch: AppDispatch = useDispatch()
-    const handleTap = async () => {
-        try {
-            const data = await UserAPI.requestLogin();
-            console.log("data login là", data);
-            // dispatch(signIn(data.user));
-        } catch (e) {
-            console.error('Error fetching data', e);
-        }
-    //    dispatch(signIn(''));
+    const handleTap = () => {
+        // try {
+        //     const data = await UserAPI.requestLogin();
+        //     console.log("data login là", data);
+        //     // dispatch(signIn(data.user));
+        // } catch (e) {
+        //     console.error('Error fetching data', e);
+        // }
+       dispatch(signIn(''));
     
     };
     
