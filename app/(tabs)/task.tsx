@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, FlatList, ActivityIndicator, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, FlatList, ActivityIndicator, Image, SafeAreaView } from 'react-native';
 import { useDispatch } from 'react-redux';
 import UserAPI from "@/Network/UserAPI";
 import { signIn, signOut } from "@/store/authSlice";
@@ -48,7 +48,7 @@ const Task: React.FC = () => {
     }
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Text style={styles.title}>TASK SCREEN</Text>
             <TouchableOpacity style={styles.button} onPress={handleTap}>
                 <Text style={styles.buttonText}>Log out</Text>
@@ -60,7 +60,7 @@ const Task: React.FC = () => {
                 keyExtractor={item => item.id.toString()}
                 contentContainerStyle={styles.list}
             />
-        </View>
+        </SafeAreaView>
     );
 }
 
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 10,
-        backgroundColor: '#f5f5f5',
+        backgroundColor: 'black',
     },
     loadingContainer: {
         justifyContent: 'center',

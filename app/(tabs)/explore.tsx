@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 import TodoItem from '@/components/TodoItem';
 import AddItem from '@/components/AddItem';
 import { RootState, AppDispatch } from '@/store/store';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Explore() {
   const [text, setText] = useState('');
@@ -40,14 +41,14 @@ export default function Explore() {
     <TouchableWithoutFeedback onPress={() => {
       Keyboard.dismiss();
     }}>
-      <View style={styles.content}>
+      <SafeAreaView style={styles.content}>
         <AddItem textInput={text} setNewText={setText} handleTap={handleTap} />
         <View style={styles.content}>
           <FlatList data={todos} renderItem={({ item }) => (
             <TodoItem item={item} pressHandler={pressHandler} />
           )} />
         </View>
-      </View>
+      </SafeAreaView>
     </TouchableWithoutFeedback>
   );
 }

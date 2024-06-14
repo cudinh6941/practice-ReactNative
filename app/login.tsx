@@ -16,7 +16,6 @@ export default function Login() {
         //     console.error('Error fetching data', e);
         // }
        dispatch(signIn(''));
-    
     };
     
     return (

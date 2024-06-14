@@ -6,12 +6,11 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useState } from 'react';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { Provider, useSelector } from 'react-redux';
-import { StatusBar } from 'expo-status-bar';
 import NotFoundScreen from './+not-found';
 import TabLayout from './(tabs)/_layout';
-import HomeScreen from './(tabs)';
 import Login from './login';
 import { getIsSigned } from '@/store/authSlice';
+import { StatusBar } from 'react-native';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -45,17 +44,13 @@ const InitialLayout = () => {
     <Stack.Navigator
     screenOptions={{
       headerStyle: {
-        backgroundColor: '#8db8d6'
+        backgroundColor: 'green'
       }
     }}
     >
       {isSigned ? (
         <>
         <Stack.Screen name="tabs" component={TabLayout} options={{ headerShown: false }} />
-          <Stack.Screen name="index" component={HomeScreen} options={{
-            headerShown: true,
-            title: 'Login'
-          }} />
         </>
       ) : (
         <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
@@ -69,7 +64,7 @@ const RootLayoutNav = () => {
   return (
     <Provider store={store} >
       <NavigationContainer independent={true}>
-          <StatusBar/>
+          <StatusBar barStyle='light-content' backgroundColor='blue'/>
           <InitialLayout/>
       </NavigationContainer>
    </Provider>
