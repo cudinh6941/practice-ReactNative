@@ -20,12 +20,14 @@ export default function TabLayout() {
       tabBarIcon: ({ focused, color, size }) => {
         let iconName: any;
 
-        if (route.name === 'explore') {
+        if (route.name === 'home') {
           iconName = focused
             ? require('@/assets/images/IconSelected/Icon.png') 
             : require('@/assets/images/icon/Icon_home.png')
         } else if (route.name === 'index') {
-          iconName = focused ? require('@/assets/images/IconSelected/Icon.png') : require('@/assets/images/icon/Icon_home.png') 
+          iconName = focused ? require('@/assets/images/IconSelected/Icon_lib_selected.png') : require('@/assets/images/icon/Icon_lib.png') 
+        } else if (route.name === 'explore') {
+          iconName = focused ? require('@/assets/images/IconSelected/Icon_search_selected.png') : require('@/assets/images/icon/Icon_search.png') 
         }
         
         // You can return any component that you like here!
@@ -35,9 +37,6 @@ export default function TabLayout() {
       headerShown: false,
       tabBarStyle: {
         backgroundColor: 'black',
-      },
-      tabBarLabelStyle: {
-        marginTop: 20
       },
       tabBarActiveTintColor: 'white',
       tabBarInactiveTintColor: 'gray',

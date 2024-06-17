@@ -1,12 +1,25 @@
 import React from 'react';
-import { Ionicons } from '@expo/vector-icons'; // Đảm bảo bạn đã cài đặt và import Ionicons từ thư viện Expo Icons
-import { Image } from 'react-native';
-const CustomIcon = ({ size, color, imageSource, ...rest} : { size: number; color: string; imageSource: any }) => {
+import { Image, View, StyleSheet, ImageSourcePropType } from 'react-native';
+
+interface CustomIconProps {
+    size: number;
+    color: string;
+    imageSource: ImageSourcePropType;
+}
+
+const CustomIcon: React.FC<CustomIconProps> = ({ size, color, imageSource }) => {
     return (
-      <>
-      {/* <Ionicons size={size} color={color} {...rest} /> */}
-      <Image source={imageSource} style={{marginTop: 30, left: 0, width: size, height: size }} />
-  </>
-    )
-  }
-export default CustomIcon
+        <View style={styles.iconContainer}>
+            <Image source={imageSource} style={{ width: size, height: size }} />
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    iconContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
+});
+
+export default CustomIcon;

@@ -7,7 +7,7 @@ import { AppDispatch } from "@/store/store";
 
 
 
-const Task: React.FC = () => {
+const Task = () => {
     const dispatch: AppDispatch = useDispatch();
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true)

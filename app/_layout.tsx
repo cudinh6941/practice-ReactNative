@@ -11,7 +11,6 @@ import TabLayout from './(tabs)/_layout';
 import Login from './login';
 import { getIsSigned } from '@/store/authSlice';
 import { StatusBar } from 'react-native';
-
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
