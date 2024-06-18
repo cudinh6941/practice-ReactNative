@@ -8,6 +8,7 @@ type TodoItemProps = {
 }
 
 const AddItem: React.FC<TodoItemProps> = ({textInput, setNewText, handleTap}) => {
+  console.log('Add Item re-rendered')
   useEffect(() => {
     console.log("Component is mounted")
     return () => {

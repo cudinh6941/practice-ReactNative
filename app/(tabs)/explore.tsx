@@ -9,6 +9,7 @@ import { RootState, AppDispatch } from '@/store/store';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Explore() {
+  console.log('explore re-rendered')
   const [text, setText] = useState('');
   const todos = useSelector((state: RootState) => state.todos);
   const dispatch: AppDispatch = useDispatch();

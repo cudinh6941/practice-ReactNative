@@ -29,14 +29,10 @@ const Task = () => {
         };
         fetchData();
     }, []);
-    const renderItem = ({ item }) => (
+    const renderItem = ({ item }: { item: { id: number, title: string, url: string } }) => (
         <View style={styles.item}>
-            
             <Text style={styles.title}>{item.title}</Text>
             <Image style={styles.image} source={{uri: item.url}} resizeMode='cover' />
-            {/* <Text>title: {item.title}</Text> */}
-            {/* <Text>body: {item.body}</Text> */}
-            {/* <Text>Company: {item.company.name}</Text> */}
         </View>
     );
     if (loading) {
