@@ -11,6 +11,7 @@ import TabLayout from './(tabs)/_layout';
 import Login from './login';
 import { getIsSigned } from '@/store/authSlice';
 import { StatusBar } from 'react-native';
+import AuthScreen from './login';
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
@@ -52,7 +53,7 @@ const InitialLayout = () => {
         <Stack.Screen name="tabs" component={TabLayout} options={{ headerShown: false }} />
         </>
       ) : (
-        <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name="login" component={AuthScreen} options={{ headerShown: false }} />
       )}
       <Stack.Screen name="+not-found" component={NotFoundScreen} options={{ headerShown: false }} />
     </Stack.Navigator>  

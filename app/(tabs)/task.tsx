@@ -1,46 +1,55 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, ActivityIndicator, Image, SafeAreaView } from 'react-native';
 import { useDispatch } from 'react-redux';
-import UserAPI from "@/Network/UserAPI";
-import { signIn, signOut } from "@/store/authSlice";
 import { AppDispatch } from "@/store/store";
+import { signIn, signOut } from "@/store/authSlice";
+import UserAPI from "@/Network/UserAPI";
 
+type ItemData = {
+    id: number;
+    title: string;
+    url: string;
+};
 
-
-const Task = () => {
+const Task: React.FC = () => {
+    console.log('Task re-rendered');
     const dispatch: AppDispatch = useDispatch();
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true)
+    const [data, setData] = useState<ItemData[]>([]);
+    const [loading, setLoading] = useState(true);
+
     const handleTap = () => {
         dispatch(signOut());
-    }
+    };
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response: any = await UserAPI.requestLogin();
                 setData(response);
-                // console.log(response[0].url)
             } catch (e) {
                 console.error('Error fetching data', e);
             } finally {
-                setLoading(false)
+                setLoading(false);
             }
         };
         fetchData();
     }, []);
-    const renderItem = ({ item }: { item: { id: number, title: string, url: string } }) => (
-        <View style={styles.item}>
-            <Text style={styles.title}>{item.title}</Text>
-            <Image style={styles.image} source={{uri: item.url}} resizeMode='cover' />
-        </View>
+
+    const renderItem = ({ item }: { item: ItemData }) => (
+        <TouchableOpacity>
+            <View style={styles.item}>
+                <Text style={styles.title}>{item.title}</Text>
+                <Image style={styles.image} source={{ uri: item.url }} resizeMode='cover' />
+            </View>
+        </TouchableOpacity>
     );
+
     if (loading) {
         return (
             <View style={[styles.container, styles.loadingContainer]}>
-                <ActivityIndicator size='large' color='gray'></ActivityIndicator>
+                <ActivityIndicator size='large' color='gray' />
             </View>
-        )
+        );
     }
 
     return (
@@ -49,16 +58,18 @@ const Task = () => {
             <TouchableOpacity style={styles.button} onPress={handleTap}>
                 <Text style={styles.buttonText}>Log out</Text>
             </TouchableOpacity>
-            {/* <Image style={styles.image} source={{uri: 'https://via.placeholder.com/600/92c952' }} resizeMode='cover' /> */}
             <FlatList
                 data={data}
                 renderItem={renderItem}
-                keyExtractor={item => item.id.toString()}
+                keyExtractor={(item) => item.id.toString()}
                 contentContainerStyle={styles.list}
+                initialNumToRender={10}
+                maxToRenderPerBatch={10}
+                windowSize={10}
             />
         </SafeAreaView>
     );
-}
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -107,10 +118,10 @@ const styles = StyleSheet.create({
     },
     image: {
         width: '100%',
-        height: 200, // Thiết lập chiều cao cho hình ảnh
+        height: 200,
         borderRadius: 5,
         marginBottom: 10,
-    }
+    },
 });
 
 export default Task;

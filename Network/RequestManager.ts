@@ -31,6 +31,7 @@ const request = async <T>(config: AxiosRequestConfig): Promise<T> => {
       throw error.response ? error.response.data : error;
     }
   };
+
   
 
 export default {

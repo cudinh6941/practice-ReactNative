@@ -7,8 +7,8 @@ import AlbumItem from '@/components/HomeHeaderItem';
 export default function HomeScreen() {
   const icons = [
     { size: 25, color: '', imageSource: require('@/assets/images/icon/Notification.png') },
-    { size: 25, color: '', imageSource: require('@/assets/images/icon/Notification.png') },
-    { size: 25, color: '', imageSource: require('@/assets/images/icon/Notification.png') }
+    { size: 25, color: '', imageSource: require('@/assets/images/icon/Recents.png') },
+    { size: 25, color: '', imageSource: require('@/assets/images/icon/Settings.png') }
   ];
 
   const data = [
